@@ -33,8 +33,9 @@ for (let i = 1; i <= 5; i++) {
     randomNum.push(number)
        
 }
-//-Get dom element to stamp within
+//-Get dom elements to stamp within
 let pageNumEl =  document.querySelector('span')
+let formEl =  document.querySelector('form')
 
 //-Stamp numbers in the page
 pageNumEl.innerHTML = `${randomNum[0]}, ${randomNum[1]}, ${randomNum[2]},
@@ -43,10 +44,12 @@ ${randomNum[3]}, ${randomNum[4]}`
 //Remove numbers from page after 30 seconds
 function hideNum() {
     pageNumEl.innerHTML = ''
+    
+    //Show 5 inputs
+    formEl.classList.replace('d-none', 'd-flex')
 }
 setTimeout(hideNum, 30000)
 
-//Show 5 inputs
 
 //Compare the user's numbers with the generated numbers regardless of the order
 
