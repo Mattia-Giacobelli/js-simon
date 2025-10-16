@@ -69,6 +69,7 @@ formEl.addEventListener('submit', (event) => {
     const fourthNum = Number(fourthNumEl.value)
     const fifthNum = Number(fifthNumEl.value)
 
+
     /**
      * Create an array whith input numbers
      * @param {Num1} num1 
@@ -93,21 +94,41 @@ formEl.addEventListener('submit', (event) => {
     const userNums = getNumArray(firstNum, secondNum, thirdNum, fourthNum, fifthNum)
     console.log(userNums);
 
-    //Compare the user's numbers with the generated numbers regardless of the order
-    let guesses = 0
+    //Check if user input the same number
 
+    const duplicateNum = userNums
+
+    
     for (let i = 0; i < userNums.length; i++) {
-        const number = userNums[i];
 
-        if ((number === randomNum[0]) || (number === randomNum[1]) || (number === randomNum[2]) ||
-            (number === randomNum[3]) || (number === randomNum[4])) {
-                guesses++
+        duplicateNum.splice(i, 1)
+        console.log(duplicateNum);
+        
+
+        if (duplicateNum.includes(userNums[i], 0)) {
+            console.log('duplicate');
+            break
         }
     }
-    //Stamp results
-    const guessedEl = document.querySelector('.results')
-    console.log(guessedEl);
 
-    guessedEl.innerHTML = `You guessed ${guesses} numbers!`
+
+
+    //Compare the user's numbers with the generated numbers regardless of the order
+    let guesses = 0
     
+    for (let i = 0; i < userNums.length; i++) {
+    const number = userNums[i];
+
+    if ((number === randomNum[0]) || (number === randomNum[1]) || (number === randomNum[2]) ||
+        (number === randomNum[3]) || (number === randomNum[4])) {
+        guesses++
+    }
+}
+//Stamp results
+const guessedEl = document.querySelector('.results')
+console.log(guessedEl);
+
+guessedEl.innerHTML = `You guessed ${guesses} numbers!`
+    
+
 })
