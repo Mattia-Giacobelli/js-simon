@@ -31,11 +31,14 @@ for (let i = 1; i <= 5; i++) {
 
     //-Push the numbers into an array
     randomNum.push(number)
-    console.log(randomNum);
-    
-    
+       
 }
+//-Get dom element to stamp within
+let pageNumEl =  document.querySelector('span')
+
 //-Stamp numbers in the page
+pageNumEl.innerHTML = `${randomNum[0]}, ${randomNum[1]}, ${randomNum[2]},
+${randomNum[3]}, ${randomNum[4]}`
 
 //Remove numbers from page
 
