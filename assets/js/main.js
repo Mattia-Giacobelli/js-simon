@@ -40,7 +40,11 @@ let pageNumEl =  document.querySelector('span')
 pageNumEl.innerHTML = `${randomNum[0]}, ${randomNum[1]}, ${randomNum[2]},
 ${randomNum[3]}, ${randomNum[4]}`
 
-//Remove numbers from page
+//Remove numbers from page after 30 seconds
+function hideNum() {
+    pageNumEl.innerHTML = ''
+}
+setTimeout(hideNum, 30000)
 
 //Show 5 inputs
 
