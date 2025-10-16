@@ -33,6 +33,8 @@ for (let i = 1; i <= 5; i++) {
     randomNum.push(number)
        
 }
+console.log(randomNum);
+
 //-Get dom elements to stamp within
 let pageNumEl =  document.querySelector('span')
 let formEl =  document.querySelector('form')
@@ -48,9 +50,51 @@ function hideNum() {
     //Show 5 inputs
     formEl.classList.replace('d-none', 'd-flex')
 }
-setTimeout(hideNum, 30000)
+setTimeout(hideNum, 3000)
 
+//Save user's number into an array
 
-//Compare the user's numbers with the generated numbers regardless of the order
-
-//Stamp results
+formEl.addEventListener('submit', (event) => {
+    event.preventDefault()
+    
+    const firstNumEl = document.getElementById('first-number')
+    const secondNumEl = document.getElementById('second-number')
+    const thirdNumEl = document.getElementById('third-number')
+    const fourthNumEl = document.getElementById('fourth-number')
+    const fifthNumEl = document.getElementById('fifth-number')
+    
+    const firstNum = Number(firstNumEl.value)
+    const secondNum = Number(secondNumEl.value)
+    const thirdNum = Number(thirdNumEl.value)
+    const fourthNum = Number(fourthNumEl.value)
+    const fifthNum = Number(fifthNumEl.value)
+    
+    /**
+     * Create an array whith input numbers
+     * @param {Num1} num1 
+     * @param {Num2} num2 
+     * @param {Num3} num3 
+     * @param {Num4} num4 
+     * @param {Num5} num5 
+     * @returns An array of numbers
+    */
+   function getNumArray(num1, num2, num3, num4, num5) {
+       const numArray = []
+       
+       numArray.push(num1)
+       numArray.push(num2)
+       numArray.push(num3)
+       numArray.push(num4)
+       numArray.push(num5)
+       
+       return numArray
+    }
+    
+    const userNums = getNumArray(firstNum, secondNum, thirdNum, fourthNum, fifthNum)
+    console.log(userNums);
+    
+    //Compare the user's numbers with the generated numbers regardless of the order
+    
+    //Stamp results
+    
+})
