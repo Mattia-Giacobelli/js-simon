@@ -16,10 +16,25 @@ Se l’utente ha inserito qualcosa di non valido, segnaliamolo visivamente nel f
 
 
 //Create random numbers array
+const randomNum = []
 
 //Generate 5 random numbers
+
+//-Create number generation function
+function getRandomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
 //-Create a cycle to generate the numbers
-//-Push the numbers into an array
+for (let i = 1; i <= 5; i++) {
+    let number = getRandomNum(1, 50)
+
+    //-Push the numbers into an array
+    randomNum.push(number)
+    console.log(randomNum);
+    
+    
+}
 //-Stamp numbers in the page
 
 //Remove numbers from page
