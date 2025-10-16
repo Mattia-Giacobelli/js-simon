@@ -99,11 +99,15 @@ formEl.addEventListener('submit', (event) => {
     for (let i = 0; i < userNums.length; i++) {
         const number = userNums[i];
 
-        if ((number = randomNum[0]) || (number = randomNum[1]) || (number = randomNum[2]) ||
-            (number = randomNum[3]) || (number = randomNum[4])) {
+        if ((number === randomNum[0]) || (number === randomNum[1]) || (number === randomNum[2]) ||
+            (number === randomNum[3]) || (number === randomNum[4])) {
                 guesses++
         }
     }
     //Stamp results
+    const guessedEl = document.querySelector('.results')
+    console.log(guessedEl);
 
+    guessedEl.innerHTML = `You guessed ${guesses} numbers!`
+    
 })
