@@ -22,7 +22,7 @@ const randomNum = []
 
 //-Create number generation function
 function getRandomNum(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) ) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 //-Create a cycle to generate the numbers
@@ -31,13 +31,13 @@ for (let i = 1; i <= 5; i++) {
 
     //-Push the numbers into an array
     randomNum.push(number)
-       
+
 }
 console.log(randomNum);
 
 //-Get dom elements to stamp within
-let pageNumEl =  document.querySelector('span')
-let formEl =  document.querySelector('form')
+let pageNumEl = document.querySelector('span')
+let formEl = document.querySelector('form')
 
 //-Stamp numbers in the page
 pageNumEl.innerHTML = `${randomNum[0]}, ${randomNum[1]}, ${randomNum[2]},
@@ -46,7 +46,7 @@ ${randomNum[3]}, ${randomNum[4]}`
 //Remove numbers from page after 30 seconds
 function hideNum() {
     pageNumEl.innerHTML = ''
-    
+
     //Show 5 inputs
     formEl.classList.replace('d-none', 'd-flex')
 }
@@ -56,19 +56,19 @@ setTimeout(hideNum, 3000)
 
 formEl.addEventListener('submit', (event) => {
     event.preventDefault()
-    
+
     const firstNumEl = document.getElementById('first-number')
     const secondNumEl = document.getElementById('second-number')
     const thirdNumEl = document.getElementById('third-number')
     const fourthNumEl = document.getElementById('fourth-number')
     const fifthNumEl = document.getElementById('fifth-number')
-    
+
     const firstNum = Number(firstNumEl.value)
     const secondNum = Number(secondNumEl.value)
     const thirdNum = Number(thirdNumEl.value)
     const fourthNum = Number(fourthNumEl.value)
     const fifthNum = Number(fifthNumEl.value)
-    
+
     /**
      * Create an array whith input numbers
      * @param {Num1} num1 
@@ -78,23 +78,32 @@ formEl.addEventListener('submit', (event) => {
      * @param {Num5} num5 
      * @returns An array of numbers
     */
-   function getNumArray(num1, num2, num3, num4, num5) {
-       const numArray = []
-       
-       numArray.push(num1)
-       numArray.push(num2)
-       numArray.push(num3)
-       numArray.push(num4)
-       numArray.push(num5)
-       
-       return numArray
+    function getNumArray(num1, num2, num3, num4, num5) {
+        const numArray = []
+
+        numArray.push(num1)
+        numArray.push(num2)
+        numArray.push(num3)
+        numArray.push(num4)
+        numArray.push(num5)
+
+        return numArray
     }
-    
+
     const userNums = getNumArray(firstNum, secondNum, thirdNum, fourthNum, fifthNum)
     console.log(userNums);
-    
+
     //Compare the user's numbers with the generated numbers regardless of the order
-    
+    let guesses = 0
+
+    for (let i = 0; i < userNums.length; i++) {
+        const number = userNums[i];
+
+        if ((number = randomNum[0]) || (number = randomNum[1]) || (number = randomNum[2]) ||
+            (number = randomNum[3]) || (number = randomNum[4])) {
+                guesses++
+        }
+    }
     //Stamp results
-    
+
 })
